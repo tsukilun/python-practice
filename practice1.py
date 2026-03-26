@@ -1,54 +1,36 @@
-customer_name = input("Enter customer name: ")
+customer_name = input("Enter customer name:")
 
-subtotal = 0
-count = 0
+product_name = input("Enter product name:")
 
-#A1
-while True:
-    product_name = input("Enter product name (or 'done' to finish): ")
-    
-    if product_name.lower() == "done":
-        break
-    
-    price = float(input("Enter price: "))
-    
-    subtotal += price
-    count += 1
+price_per_unit = float(input("Enter price per unit (KZT):"))
+
+quantity = int(input("Enter quantity:"))
+
+subtotal = price_per_unit * quantity
+
+if subtotal > 5000:
+    discount = subtotal * 0.1
+else:
+    discount = 0
+
+total = subtotal - discount
 
 print("="*30)
 print("SHOP RECEIPT".center(30))
 print("="*30)
 
-print(f"Customer : {customer_name.upper()}")
-print(f"Items : {count}")
-print(f"Subtotal : {subtotal} KZT")
-
-#A2
-if subtotal < 3000:
-    discount_rate = 0
-    tier = "No discount"
-elif subtotal < 7000:
-    discount_rate = 0.05
-    tier = "5% discount"
-else:
-    discount_rate = 0.15
-    tier = "15% discount"
-
-discount = subtotal * discount_rate
-total = subtotal - discount
+print(f"Customer: {customer_name}")
+print(f"Product: {product_name}")   
+print(f"Price per unit: {price_per_unit} KZT")
+print(f"Quantity: {quantity}")
 
 print("-"*30)
-print(f"Discount tier : {tier}")
-print(f"Discount : {discount} KZT")
-print(f"Total : {total} KZT")
 
-#A3
-print("-"*30)
-print(f"Name uppercase : {customer_name.upper()}")
-print(f"Name lowercase : {customer_name.lower()}")
-print(f"Name length : {len(customer_name)}")
+print(f"Subtotal: {subtotal} KZT")
+print(f"Discount: {discount} KZT")
+print(f"Total: {total} KZT")
 
-if len(customer_name) > 5:
-    print("Long name")
-else:
-    print("Short name")
+print("="*30)
+
+print("Discount applied:", subtotal > 5000)
+print("Paid more than 3000:", total > 3000)
