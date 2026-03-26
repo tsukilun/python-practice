@@ -1,14 +1,10 @@
-print("Enter customer name:")
-customer_name = input()
+customer_name = input("Enter customer name:")
 
-print("Enter product name:")
-product_name = input()
+product_name = input("Enter product name:")
 
-print("Enter price per unit (KZT):")
-price_per_unit = float(input())
+price_per_unit = float(input("Enter price per unit (KZT):"))
 
-print("Enter quantity:")
-quantity = int(input())
+quantity = int(input("Enter quantity:"))
 
 subtotal = price_per_unit * quantity
 
